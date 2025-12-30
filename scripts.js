@@ -15,6 +15,15 @@ let i = parseInt(localStorage.getItem("counter")) || 0;
 entryform.addEventListener("submit", function (e) {
     e.preventDefault(); // stop page refresh
 
+    if (!Name.value.trim() || !address.value.trim() || !roll.value.trim()) {
+        alert("All fields are required!");
+        return;
+    }
+    if (+roll.value <= 0) {
+        alert("Roll number must be a positive number!");
+        return;
+    }
+
     i++; // increase counter
 
     // Create object from input values
